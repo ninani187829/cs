@@ -59,4 +59,4 @@ from cte left
 join total_trade t on cte.vertical = t.vertical
 and iso2_financial_regions = t.financial_regions
 and cte.case_createdon = t.order_createdon
-order by 1,2,3
+order by 1,2,3;
