@@ -35,7 +35,7 @@ select
          when date_diff('day',o.created_at,f.createdon) between 4 and 7 then '4 - 7 Days'
          when date_diff('day',o.created_at,f.createdon) between 8 and 31 then '1 week - 1 Month'
          else '> 1 Month' end as days_of_latency
-    -- Most latency is less than 1 month, maxium latency can be up to 
+    -- Most latency is less than 1 month, maxium latency can be up to months with low volume, creating bins to better understand the distribution
 from first_contact f
 join analytics_core.core_orders_ods o
 on f.stx_ordernumber = o.order_id
@@ -51,4 +51,4 @@ select
 from latency
 group by 1,2,3,4
 order by 1,2,3,4
--- Show the results in Tableau and filter by contact reasons
+-- Show results in Tableau and filter by contact reasons
